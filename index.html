@@ -709,7 +709,7 @@ main,footer{position:relative;z-index:1}
           </div></div>
         <div class="f w2 msg"><label for="f-msg">Wiadomość</label><textarea id="f-msg" name="Wiadomość" placeholder="Godziny przyjęcia, ulubione smaki, pytania…"></textarea></div>
         <label class="consent" for="f-rodo"><input type="checkbox" id="f-rodo" required><span>Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie.</span></label>
-        <div class="submit"><button class="btn" type="submit" id="send">Wyślij zapytanie</button><p class="status" id="status" role="status" aria-live="polite"></p></div>
+        <div class="submit"><button class="btn" type="submit" id="send">Wyślij</button><p class="status" id="status" role="status" aria-live="polite"></p></div>
       </form>
     </div>
   </section>
@@ -780,7 +780,7 @@ main,footer{position:relative;z-index:1}
       .then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)!=='true')throw new Error(j.message||r.status);})})
       .then(function(){form.reset();status.className='status ok';status.textContent='Dziękujemy! Zapytanie wysłane. Odezwiemy się z dostępnością terminu.';})
       .catch(function(){status.className='status err';status.textContent='Nie udało się wysłać formularza. Napiszcie bezpośrednio na kontakt@limonte.pl.';})
-      .finally(function(){send.disabled=false;send.textContent='Wyślij zapytanie';});
+      .finally(function(){send.disabled=false;send.textContent='Wyślij';});
   });
 })();
 
