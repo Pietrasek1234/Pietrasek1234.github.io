@@ -386,8 +386,14 @@ footer nav a:hover{color:var(--lime)}
   .consent{font-size:.78rem}
   .submit .btn{width:100%;justify-content:center}
 }
+
+/* champagne bubbles in the page background */
+#bubbles{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,footer{position:relative;z-index:1}
+@media (prefers-reduced-motion:reduce){#bubbles{display:none}}
 </style>
 
+<canvas id="bubbles" aria-hidden="true"></canvas>
 </head>
 <body>
 <header class="top">
@@ -776,6 +782,24 @@ footer nav a:hover{color:var(--lime)}
       .catch(function(){status.className='status err';status.textContent='Nie udało się wysłać formularza. Napiszcie bezpośrednio na kontakt@limonte.pl.';})
       .finally(function(){send.disabled=false;send.textContent='Wyślij zapytanie';});
   });
+})();
+
+/* Bubbles: light champagne-style background animation */
+(function(){
+  var c=document.getElementById('bubbles');
+  if(!c||!c.getContext||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  var x=c.getContext('2d'),W=0,H=0,D=1,list=[],run=true;
+  var S=48,spr=document.createElement('canvas');spr.width=spr.height=S*2;
+  (function(){var g=spr.getContext('2d'),r=S/2;var gr=g.createRadialGradient(S-r*.35,S-r*.35,0,S,S,S);
+    gr.addColorStop(0,'rgba(230,255,235,.85)');gr.addColorStop(.3,'rgba(66,241,117,.40)');gr.addColorStop(.7,'rgba(1,245,187,.10)');gr.addColorStop(1,'rgba(1,245,187,0)');
+    g.fillStyle=gr;g.beginPath();g.arc(S,S,S,0,Math.PI*2);g.fill();})();
+  function mk(init){var r=2+Math.random()*8;return{x:Math.random()*W,y:init?Math.random()*H:H+r*4,r:r,vy:.15+Math.random()*.4,a:.18+Math.random()*.4,ph:Math.random()*6.28}}
+  function count(){return W<760?22:Math.min(60,Math.max(30,Math.floor(W*H/32000)))}
+  function size(){var w=innerWidth,h=innerHeight,wc=w!==W;if(!wc&&Math.abs(h-H)<2)return;D=Math.min(devicePixelRatio||1,2);W=w;H=h;c.width=Math.round(W*D);c.height=Math.round(H*D);x.setTransform(D,0,0,D,0,0);if(wc||!list.length){list=[];for(var i=0,n=count();i<n;i++)list.push(mk(true))}}
+  function draw(){if(!run)return;x.clearRect(0,0,W,H);for(var i=0;i<list.length;i++){var p=list[i];p.y-=p.vy;p.x+=Math.sin(p.ph+p.y*.012)*.18;if(p.y<-p.r*3)list[i]=p=mk(false);var z=p.r*2.2;x.globalAlpha=p.a;x.drawImage(spr,p.x-z,p.y-z,z*2,z*2);x.globalAlpha=p.a*.5;x.strokeStyle='rgba(150,255,170,1)';x.lineWidth=.6;x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.stroke()}x.globalAlpha=1;requestAnimationFrame(draw)}
+  var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(size,150)},{passive:true});
+  document.addEventListener('visibilitychange',function(){var was=run;run=!document.hidden;if(run&&!was)requestAnimationFrame(draw)});
+  size();requestAnimationFrame(draw);
 })();
 </script>
 
