@@ -458,7 +458,7 @@ footer nav a:hover{color:var(--lime)}
             <div class="price"><small>od</small><b>2500</b><span>zł</span></div>
             <div class="count"><b>8</b><span>koktajli<br>klasycznych</span></div>
             <ul><li class="base">8 koktajli klasycznych</li><li>Mocktaile i lemoniady</li></ul>
-            <a class="btn" href="#kontakt" data-pkg="Klasyczny">Wybieram Klasyczny</a>
+            <a class="btn" href="#karty" data-pkg="Klasyczny" data-karta="klasyki">Wybieram Klasyczny</a>
           </div>
         </article>
         <article class="pkg a">
@@ -467,7 +467,7 @@ footer nav a:hover{color:var(--lime)}
             <div class="price"><small>od</small><b>3500</b><span>zł</span></div>
             <div class="count"><b>16</b><span>koktajli</span></div>
             <ul><li class="base">Wszystko z pakietu Klasycznego</li><li>Karta autorska: 8 koktajli</li><li>Koktajl Pana / Pani Młodej</li></ul>
-            <a class="btn" href="#kontakt" data-pkg="Autorski">Wybieram Autorski</a>
+            <a class="btn" href="#karty" data-pkg="Autorski" data-karta="autorskie">Wybieram Autorski</a>
           </div>
         </article>
         <article class="pkg l">
@@ -477,7 +477,7 @@ footer nav a:hover{color:var(--lime)}
             <div class="price"><small>od</small><b>4500</b><span>zł</span></div>
             <div class="count"><b>25</b><span>pozycji</span></div>
             <ul><li class="base">Wszystko z pakietu Autorskiego</li><li>Karta Jäger: 3 drinki</li><li>6 shotów</li></ul>
-            <a class="btn" href="#kontakt" data-pkg="Limonte">Wybieram Limonte</a>
+            <a class="btn" href="#karty" data-pkg="Limonte" data-karta="jager">Wybieram Limonte</a>
           </div>
         </article>
       </div>
@@ -733,7 +733,7 @@ footer nav a:hover{color:var(--lime)}
   });
   /* Preselect package / bar in the form */
   function pick(name,val){var el=document.querySelector('input[name="'+name+'"][value="'+val+'"]');if(el)el.checked=true;}
-  document.querySelectorAll('[data-pkg]').forEach(function(a){a.addEventListener('click',function(){pick('Pakiet',a.dataset.pkg)});});
+  document.querySelectorAll('[data-pkg]').forEach(function(a){a.addEventListener('click',function(){pick('Pakiet',a.dataset.pkg);var r=document.getElementById('r-'+a.dataset.karta);if(r)r.checked=true;});});
   document.querySelectorAll('.bar').forEach(function(b){
     b.querySelector('button').addEventListener('click',function(){
       document.querySelectorAll('.bar').forEach(function(x){x.classList.remove('picked');x.querySelector('button').textContent='Wybieram ten bar';});
