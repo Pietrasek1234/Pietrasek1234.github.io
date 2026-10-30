@@ -449,6 +449,20 @@ main,footer{position:relative;z-index:1}
 .faq-list .ans b{color:var(--text)}
 @media (max-width:860px){.faq{grid-template-columns:1fr}.faq-head{position:static}}
 @media (max-width:560px){.faq-list summary{padding:14px 16px;font-size:.98rem}.faq-list .ans{padding:0 16px 14px;font-size:.88rem}}
+
+/* design v2: glass panels with gradient edge */
+.faq-list details,form{
+  background:linear-gradient(160deg,#171e1a,#0e1311) padding-box,
+             linear-gradient(140deg,color-mix(in srgb,var(--lime) 50%,#1b221e),#1b221e 35%,#1b221e 65%,color-mix(in srgb,var(--mint) 35%,#1b221e)) border-box!important;
+  border:1px solid transparent!important;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 20px 50px -30px rgba(0,0,0,.9),inset 0 1px 0 rgba(255,255,255,.04)}
+.faq-list details{border-radius:20px}
+.faq-list details[open]{background:linear-gradient(160deg,#16261c,#0e1311 60%) padding-box,linear-gradient(140deg,var(--lime),#22302a 40%,color-mix(in srgb,var(--mint) 60%,#22302a)) border-box!important;box-shadow:0 0 0 4px color-mix(in srgb,var(--lime) 8%,transparent),0 24px 60px -30px color-mix(in srgb,var(--lime) 45%,transparent)}
+.faq-list summary::after{background:color-mix(in srgb,var(--lime) 12%,transparent);border-color:color-mix(in srgb,var(--lime) 35%,transparent)}
+.faq-list details[open] summary::after{background:var(--lime);color:var(--ink)}
+form{border-radius:28px!important;box-shadow:0 0 0 1px rgba(255,255,255,.02),0 40px 100px -50px color-mix(in srgb,var(--lime) 55%,transparent)}
+form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.08)}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
