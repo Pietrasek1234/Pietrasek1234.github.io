@@ -786,6 +786,54 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
     <div class="wrap"><h2>Najlepsze miejsce na weselu?<br><span class="lime">Przy barze.</span></h2></div>
   </section>
 
+  <section id="kontakt" style="padding-top:0">
+    <div class="wrap contact">
+      <aside>
+        <div class="head" style="margin:0">
+          <p class="eyebrow">Kontakt</p>
+          <h2>Sprawdźmy <span class="lime">Wasz termin</span></h2>
+          <p class="lead">Napiszcie datę, miejsce i przybliżoną liczbę gości. Odpowiemy z dostępnością baru i wyceną pakietu.</p>
+        </div>
+        <div class="mail"><code id="mail">kontakt@limonte.pl</code><button class="mini" type="button" id="copy">Kopiuj</button></div>
+      </aside>
+
+      <form id="form" novalidate>
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="f wide-m"><label for="f-name">Imię i nazwisko</label><input id="f-name" name="Imię i nazwisko" autocomplete="name" required></div>
+        <div class="f wide-m"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="f"><label for="f-tel">Telefon</label><input id="f-tel" name="Telefon" type="tel" autocomplete="tel" inputmode="tel"></div>
+        <div class="f"><label for="f-date">Data wydarzenia</label><input id="f-date" name="Data" type="date" required></div>
+        <div class="f"><label for="f-type">Rodzaj wydarzenia</label>
+          <select id="f-type" name="Rodzaj wydarzenia"><option>Wesele</option><option>Event firmowy</option><option>Przyjęcie prywatne</option><option>Inne</option></select></div>
+        <div class="f"><label for="f-guests">Liczba gości</label><input id="f-guests" name="Liczba gości" type="number" min="10" step="1" inputmode="numeric" placeholder="np. 120" required></div>
+        <div class="f w2"><label for="f-place">Miejsce / sala</label><input id="f-place" name="Miejsce" placeholder="Nazwa sali i miejscowość"></div>
+        <div class="f w2"><span class="lbl" id="l-pkg">Pakiet</span>
+          <div class="chips" role="radiogroup" aria-labelledby="l-pkg">
+            <label class="chip"><input type="radio" name="Pakiet" value="Klasyczny" id="p1"><span>Klasyczny · od 2500 zł</span></label>
+            <label class="chip"><input type="radio" name="Pakiet" value="Autorski" id="p2"><span>Autorski · od 3500 zł</span></label>
+            <label class="chip"><input type="radio" name="Pakiet" value="Limonte" id="p3"><span>Limonte · od 4500 zł</span></label>
+            <label class="chip"><input type="radio" name="Pakiet" value="Jeszcze nie wiem" id="p4" checked><span>Jeszcze nie wiem</span></label>
+          </div></div>
+        <div class="f w2"><span class="lbl" id="l-bar">Oprawa baru</span>
+          <div class="chips" role="radiogroup" aria-labelledby="l-bar">
+            <label class="chip"><input type="radio" name="Bar" value="Jasna elegancja" id="b1"><span>Jasna elegancja</span></label>
+            <label class="chip"><input type="radio" name="Bar" value="Nowoczesna czerń" id="b2"><span>Nowoczesna czerń</span></label>
+            <label class="chip"><input type="radio" name="Bar" value="Rustykalne drewno" id="b3"><span>Rustykalne drewno</span></label>
+            <label class="chip"><input type="radio" name="Bar" value="Doradźcie" id="b4" checked><span>Doradźcie</span></label>
+          </div></div>
+        <div class="f w2"><span class="lbl" id="l-add">Dodatki</span>
+          <div class="chips" aria-labelledby="l-add">
+            <label class="chip"><input type="checkbox" name="Koktajl Pary Młodej" value="tak" id="a1"><span>Koktajl Pana / Pani Młodej</span></label>
+            <label class="chip"><input type="checkbox" name="Wieża prosecco" value="tak" id="a2"><span>Wieża prosecco</span></label>
+            <label class="chip"><input type="checkbox" name="Przedłużenie po 01:00" value="tak" id="a3"><span>Obsługa po 01:00</span></label>
+          </div></div>
+        <div class="f w2 msg"><label for="f-msg">Wiadomość</label><textarea id="f-msg" name="Wiadomość" placeholder="Godziny przyjęcia, ulubione smaki, pytania…"></textarea></div>
+        <label class="consent" for="f-rodo"><input type="checkbox" id="f-rodo" required><span>Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie.</span></label>
+        <div class="submit"><button class="btn" type="submit" id="send">Wyślij</button><p class="status" id="status" role="status" aria-live="polite"></p></div>
+      </form>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
       <div class="head">
@@ -836,54 +884,6 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
           </ul></div>
         </details>
       </div>
-    </div>
-  </section>
-
-  <section id="kontakt" style="padding-top:0">
-    <div class="wrap contact">
-      <aside>
-        <div class="head" style="margin:0">
-          <p class="eyebrow">Kontakt</p>
-          <h2>Sprawdźmy <span class="lime">Wasz termin</span></h2>
-          <p class="lead">Napiszcie datę, miejsce i przybliżoną liczbę gości. Odpowiemy z dostępnością baru i wyceną pakietu.</p>
-        </div>
-        <div class="mail"><code id="mail">kontakt@limonte.pl</code><button class="mini" type="button" id="copy">Kopiuj</button></div>
-      </aside>
-
-      <form id="form" novalidate>
-        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="f wide-m"><label for="f-name">Imię i nazwisko</label><input id="f-name" name="Imię i nazwisko" autocomplete="name" required></div>
-        <div class="f wide-m"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="f"><label for="f-tel">Telefon</label><input id="f-tel" name="Telefon" type="tel" autocomplete="tel" inputmode="tel"></div>
-        <div class="f"><label for="f-date">Data wydarzenia</label><input id="f-date" name="Data" type="date" required></div>
-        <div class="f"><label for="f-type">Rodzaj wydarzenia</label>
-          <select id="f-type" name="Rodzaj wydarzenia"><option>Wesele</option><option>Event firmowy</option><option>Przyjęcie prywatne</option><option>Inne</option></select></div>
-        <div class="f"><label for="f-guests">Liczba gości</label><input id="f-guests" name="Liczba gości" type="number" min="10" step="1" inputmode="numeric" placeholder="np. 120" required></div>
-        <div class="f w2"><label for="f-place">Miejsce / sala</label><input id="f-place" name="Miejsce" placeholder="Nazwa sali i miejscowość"></div>
-        <div class="f w2"><span class="lbl" id="l-pkg">Pakiet</span>
-          <div class="chips" role="radiogroup" aria-labelledby="l-pkg">
-            <label class="chip"><input type="radio" name="Pakiet" value="Klasyczny" id="p1"><span>Klasyczny · od 2500 zł</span></label>
-            <label class="chip"><input type="radio" name="Pakiet" value="Autorski" id="p2"><span>Autorski · od 3500 zł</span></label>
-            <label class="chip"><input type="radio" name="Pakiet" value="Limonte" id="p3"><span>Limonte · od 4500 zł</span></label>
-            <label class="chip"><input type="radio" name="Pakiet" value="Jeszcze nie wiem" id="p4" checked><span>Jeszcze nie wiem</span></label>
-          </div></div>
-        <div class="f w2"><span class="lbl" id="l-bar">Oprawa baru</span>
-          <div class="chips" role="radiogroup" aria-labelledby="l-bar">
-            <label class="chip"><input type="radio" name="Bar" value="Jasna elegancja" id="b1"><span>Jasna elegancja</span></label>
-            <label class="chip"><input type="radio" name="Bar" value="Nowoczesna czerń" id="b2"><span>Nowoczesna czerń</span></label>
-            <label class="chip"><input type="radio" name="Bar" value="Rustykalne drewno" id="b3"><span>Rustykalne drewno</span></label>
-            <label class="chip"><input type="radio" name="Bar" value="Doradźcie" id="b4" checked><span>Doradźcie</span></label>
-          </div></div>
-        <div class="f w2"><span class="lbl" id="l-add">Dodatki</span>
-          <div class="chips" aria-labelledby="l-add">
-            <label class="chip"><input type="checkbox" name="Koktajl Pary Młodej" value="tak" id="a1"><span>Koktajl Pana / Pani Młodej</span></label>
-            <label class="chip"><input type="checkbox" name="Wieża prosecco" value="tak" id="a2"><span>Wieża prosecco</span></label>
-            <label class="chip"><input type="checkbox" name="Przedłużenie po 01:00" value="tak" id="a3"><span>Obsługa po 01:00</span></label>
-          </div></div>
-        <div class="f w2 msg"><label for="f-msg">Wiadomość</label><textarea id="f-msg" name="Wiadomość" placeholder="Godziny przyjęcia, ulubione smaki, pytania…"></textarea></div>
-        <label class="consent" for="f-rodo"><input type="checkbox" id="f-rodo" required><span>Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie.</span></label>
-        <div class="submit"><button class="btn" type="submit" id="send">Wyślij</button><p class="status" id="status" role="status" aria-live="polite"></p></div>
-      </form>
     </div>
   </section>
 </main>
