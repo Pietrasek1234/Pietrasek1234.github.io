@@ -416,6 +416,14 @@ main,footer{position:relative;z-index:1}
 @media (min-width:861px){.menu-sec .incl{margin-left:calc((100% - clamp(24px,4vw,56px)) * 1.15 / 2.15 + clamp(24px,4vw,56px))}}
 @media (max-width:860px){.menu-sec .incl{margin:-14px 0 20px}}
 @media (max-width:560px){.incl-lbl{flex-basis:100%}.ic{font-size:.72rem;padding:.3em .7em}.incl-note{font-size:.72rem}}
+
+/* card switch animation */
+@keyframes cardIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes drinkIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#r-klasyki:checked~.wrap .mi-k,#r-autorskie:checked~.wrap .mi-a,#r-jager:checked~.wrap .mi-j{animation:cardIn .55s cubic-bezier(.2,.7,.2,1) both}
+#r-klasyki:checked~.wrap .panel-k .drink,#r-autorskie:checked~.wrap .panel-a .drink,#r-jager:checked~.wrap .panel-j .drink,#r-jager:checked~.wrap .panel-j .sub{animation:drinkIn .45s cubic-bezier(.2,.7,.2,1) both}
+.menu-sec .drinks>*:nth-child(1){animation-delay:.05s!important}.menu-sec .drinks>*:nth-child(2){animation-delay:.09s!important}.menu-sec .drinks>*:nth-child(3){animation-delay:.13s!important}.menu-sec .drinks>*:nth-child(4){animation-delay:.17s!important}.menu-sec .drinks>*:nth-child(5){animation-delay:.21s!important}.menu-sec .drinks>*:nth-child(6){animation-delay:.25s!important}.menu-sec .drinks>*:nth-child(7){animation-delay:.29s!important}.menu-sec .drinks>*:nth-child(8){animation-delay:.33s!important}.menu-sec .drinks>*:nth-child(9){animation-delay:.37s!important}.menu-sec .drinks>*:nth-child(10){animation-delay:.41s!important}
+@media (prefers-reduced-motion:reduce){.menu-sec .mi,.menu-sec .drink,.menu-sec .sub{animation:none!important}}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
