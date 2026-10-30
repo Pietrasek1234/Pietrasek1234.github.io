@@ -463,6 +463,15 @@ main,footer{position:relative;z-index:1}
 .faq-list details[open] summary::after{background:var(--lime);color:var(--ink)}
 form{border-radius:28px!important;box-shadow:0 0 0 1px rgba(255,255,255,.02),0 40px 100px -50px color-mix(in srgb,var(--lime) 55%,transparent)}
 form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.08)}
+
+.band2{min-height:clamp(420px,62vw,900px)}
+.band2 img{object-position:62% 40%}
+@media (max-width:560px){.band2{min-height:480px}.band2 img{object-position:66% 30%}}
+
+/* FAQ: brand sygnet instead of plus */
+.faq-list summary::after{content:"";width:34px;height:34px;background:url(img/sygnet-lime.png) center/auto 66% no-repeat,color-mix(in srgb,var(--lime) 12%,transparent);transition:transform .35s cubic-bezier(.2,.7,.2,1),background-color .25s}
+.faq-list details[open] summary::after{transform:rotate(0) scale(1.08);background:url(img/sygnet-ink.png) center/auto 66% no-repeat,var(--lime)}
+.faq-list summary:hover::after{transform:rotate(-12deg)}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
@@ -748,6 +757,11 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
       <!-- Widget opinii Wesele z klasą -->
       <div style="width:1000px;max-width:100%;border-radius:8px;box-shadow: 0 1px 6px #B8C5D366;overflow:hidden;" class="wzk-widget iframe-height" data-wzk-widget-type="type1" data-wzk-notice="59802"><div class="wzk-widget-footer" style="background-color:#F5F6FA;text-align:center;padding:16px;font-size:12px;line-height:12px;"><a class="wzk-accent-color" title="Limonte Cocktail Bar" href="https://www.weselezklasa.pl/ogloszenia-weselne/limonte-cocktail-bar,59802/#opinie" rel="nofollow" target="_blank" style="color:currentColor;text-decoration:none;">Limonte Cocktail Bar</a><img style="margin:8px auto 0;display:block" src="https://widgets.4wzk.pl/dist/img/footer-logo.svg" alt="Wesele z klasą"></div></div><script src="https://widgets.4wzk.pl/dist/js/widget.js" defer="true"></script>
     </div>
+  </section>
+
+  <section class="neon band2" aria-label="Show barmańskie">
+    <img src="img/band-shoty.jpg" alt="Barman Limonte rozlewa shoty do rzędu kieliszków" loading="lazy" width="2000" height="1333">
+    <div class="wrap"><h2>Najlepsze miejsce na weselu?<br><span class="lime">Przy barze.</span></h2></div>
   </section>
 
   <section id="faq">
