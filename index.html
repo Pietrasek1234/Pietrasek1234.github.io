@@ -494,6 +494,19 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
   .band2::after{background:linear-gradient(0deg,var(--ink) 0%,transparent 30%);height:auto;top:0;bottom:auto;aspect-ratio:3/2}
   .band2 .wrap{margin-top:-40px;padding-block:0 32px}
 }
+
+/* tabs inside right column so card and list start at the same height */
+.menu-sec .menu-top{display:grid;gap:0}
+@media (min-width:861px){.menu-sec .tabs,.menu-sec .incl{margin-left:0!important}.menu-sec .menu-top .tabs{margin:0 0 16px}.menu-sec .menu-top .incl{margin:0 0 20px}}
+@media (max-width:860px){
+  .menu-sec .menu-wrap{display:flex;flex-direction:column;gap:0}
+  .menu-sec .menu-wrap>div{display:contents}
+  .menu-sec .menu-top{order:1}
+  .menu-sec .menu-photo{order:2;margin-bottom:20px!important}
+  .menu-sec .drinks{order:3}
+  .menu-sec .menu-top .tabs{margin:-12px 0 16px}
+  .menu-sec .menu-top .incl{margin:0 0 20px}
+}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
@@ -610,6 +623,10 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
         <p class="eyebrow">Karty koktajli</p>
         <h2>Co będzie <span class="lime">w karcie</span></h2>
       </div>
+      <div class="menu-wrap">
+        <figure class="menu-photo" style="margin:0"><img class="mi mi-k" src="img/karta-klasyki.jpg" alt="Karta koktajli klasycznych Limonte" width="1100" height="1556" loading="lazy"><img class="mi mi-a" src="img/karta-autorskie.jpg" alt="Karta koktajli autorskich Limonte" width="1100" height="1556" loading="lazy"><img class="mi mi-j" src="img/karta-jager.jpg" alt="Karta Jäger i shoty Limonte" width="1100" height="1556" loading="lazy"></figure>
+        <div>
+<div class="menu-top">
       <div class="tabs" aria-label="Karty koktajli">
             <label class="tab" for="r-klasyki" data-k="klasyki">Klasyki · 8</label>
             <label class="tab" for="r-autorskie" data-k="autorskie">Autorskie · 8</label>
@@ -620,9 +637,7 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
         <span class="ic ic-k">Klasyczny</span><span class="ic ic-a">Autorski</span><span class="ic ic-l">Limonte</span>
         <span class="incl-note">Każdy kolejny pakiet zawiera karty poprzedniego</span>
       </div>
-      <div class="menu-wrap">
-        <figure class="menu-photo" style="margin:0"><img class="mi mi-k" src="img/karta-klasyki.jpg" alt="Karta koktajli klasycznych Limonte" width="1100" height="1556" loading="lazy"><img class="mi mi-a" src="img/karta-autorskie.jpg" alt="Karta koktajli autorskich Limonte" width="1100" height="1556" loading="lazy"><img class="mi mi-j" src="img/karta-jager.jpg" alt="Karta Jäger i shoty Limonte" width="1100" height="1556" loading="lazy"></figure>
-        <div>
+</div>
           <div id="p-klasyki" class="drinks panel-k">
             <div class="drink"><b>Blue Lagoon</b><span>wódka, blue curaçao, sok z cytryny, sprite</span></div>
             <div class="drink"><b>Whisky sour</b><span>whisky, sok z cytryny, cukier, bitters</span></div>
