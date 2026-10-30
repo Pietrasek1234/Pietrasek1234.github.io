@@ -464,9 +464,6 @@ main,footer{position:relative;z-index:1}
 form{border-radius:28px!important;box-shadow:0 0 0 1px rgba(255,255,255,.02),0 40px 100px -50px color-mix(in srgb,var(--lime) 55%,transparent)}
 form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgba(255,255,255,.08)}
 
-.band2{min-height:clamp(420px,62vw,900px)}
-.band2 img{object-position:62% 40%}
-@media (max-width:560px){.band2{min-height:480px}.band2 img{object-position:66% 30%}}
 
 /* FAQ: brand sygnet instead of plus */
 .faq-list summary::after{content:"";width:34px;height:34px;background:url(img/sygnet-lime.png) center/auto 66% no-repeat,color-mix(in srgb,var(--lime) 12%,transparent);transition:transform .35s cubic-bezier(.2,.7,.2,1),background-color .25s}
@@ -480,6 +477,22 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
 #faq .faq-list summary{padding:22px 24px}
 #faq .faq-list .ans{padding:0 24px 22px}
 @media (max-width:760px){#faq .faq-list{grid-template-columns:1fr;gap:10px}#faq .faq-list summary{padding:16px 18px}#faq .faq-list .ans{padding:0 18px 16px}}
+
+/* band2: photo composed on the right like the hero, blurred fill, text on the left */
+.band2{min-height:clamp(420px,46vw,720px);align-items:center;display:grid}
+.band2 .b2-blur{position:absolute;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;filter:blur(40px) brightness(.4);z-index:0}
+.band2 .b2-box{position:absolute;top:0;right:0;height:100%;aspect-ratio:3/2;max-width:100%;z-index:0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 32%);mask-image:linear-gradient(90deg,transparent 0,#000 32%)}
+.band2 .b2-box img{position:static;width:100%;height:100%;object-fit:cover}
+.band2::after{background:linear-gradient(90deg,var(--ink) 0%,color-mix(in srgb,var(--ink) 80%,transparent) 28%,transparent 55%),linear-gradient(0deg,var(--ink) 0%,transparent 14%),linear-gradient(180deg,var(--ink) 0%,transparent 12%)}
+.band2 .wrap{padding-block:clamp(32px,4vw,56px)}
+.band2 h2{max-width:13ch}
+@media (max-width:760px){
+  .band2{display:block;min-height:0}
+  .band2 .b2-blur{display:none}
+  .band2 .b2-box{position:relative;width:100%;height:auto;-webkit-mask-image:none;mask-image:none}
+  .band2::after{background:linear-gradient(0deg,var(--ink) 0%,transparent 30%);height:auto;top:0;bottom:auto;aspect-ratio:3/2}
+  .band2 .wrap{margin-top:-40px;padding-block:0 32px}
+}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
@@ -768,7 +781,7 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
   </section>
 
   <section class="neon band2" aria-label="Show barmańskie">
-    <img src="img/band-shoty.jpg" alt="Barman Limonte rozlewa shoty do rzędu kieliszków" loading="lazy" width="2000" height="1333">
+    <img class="b2-blur" src="img/band-shoty.jpg" alt="" loading="lazy" width="2000" height="1333"><div class="b2-box"><img src="img/band-shoty.jpg" alt="Barman Limonte rozlewa shoty do rzędu kieliszków" loading="lazy" width="2000" height="1333"></div>
     <div class="wrap"><h2>Najlepsze miejsce na weselu?<br><span class="lime">Przy barze.</span></h2></div>
   </section>
 
