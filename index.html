@@ -472,6 +472,14 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
 .faq-list summary::after{content:"";width:34px;height:34px;background:url(img/sygnet-lime.png) center/auto 66% no-repeat,color-mix(in srgb,var(--lime) 12%,transparent);transition:transform .35s cubic-bezier(.2,.7,.2,1),background-color .25s}
 .faq-list details[open] summary::after{transform:rotate(0) scale(1.08);background:url(img/sygnet-ink.png) center/auto 66% no-repeat,var(--lime)}
 .faq-list summary:hover::after{transform:rotate(-12deg)}
+
+/* FAQ: vertical layout, feature-card style accordion */
+#faq .faq-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+#faq .faq-list details{background:var(--panel)!important;border:1px solid var(--line)!important;border-radius:var(--r);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+#faq .faq-list details[open]{border-color:color-mix(in srgb,var(--lime) 45%,var(--line))!important;box-shadow:none}
+#faq .faq-list summary{padding:22px 24px}
+#faq .faq-list .ans{padding:0 24px 22px}
+@media (max-width:760px){#faq .faq-list{grid-template-columns:1fr;gap:10px}#faq .faq-list summary{padding:16px 18px}#faq .faq-list .ans{padding:0 18px 16px}}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
@@ -765,15 +773,11 @@ form input,form select,form textarea{background:rgba(0,0,0,.35);border-color:rgb
   </section>
 
   <section id="faq">
-    <div class="wrap faq">
-      <div class="head faq-head">
+    <div class="wrap">
+      <div class="head">
         <p class="eyebrow">Najczęstsze pytania</p>
         <h2>Zanim <span class="lime">zapytacie</span></h2>
         <p class="lead">Nie ma tu Waszego pytania? Napiszcie albo zadzwońcie: <a class="lime" href="tel:+48661386978" style="text-decoration:none;font-weight:800">661 386 978</a>.</p>
-        <div class="area">
-          <p class="eyebrow">Gdzie działamy</p>
-          <ul><li>Podkarpackie</li><li>Małopolskie</li><li>Lubelskie</li><li>Mazowieckie</li></ul>
-        </div>
       </div>
       <div class="faq-list">
         <details open>
