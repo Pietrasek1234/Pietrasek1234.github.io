@@ -126,7 +126,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:540px){.features{grid-template-columns:1fr}}
 
 /* packages */
-.packages{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.packages{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch}
+.pkg-plus{align-self:center;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);border:1px solid var(--line);color:var(--lime);font-family:var(--f-display);font-weight:700;font-size:1.2rem;line-height:1}
+.inc{border-radius:12px;padding:10px 12px;display:grid;gap:2px;border:1px dashed var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
+.inc b{font-size:.92rem;color:var(--c)}
+.inc span{font-size:.82rem;color:var(--muted);line-height:1.35}
+.inc-k{--c:var(--coral)}.inc-a{--c:var(--lav)}
+.plus-lbl{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:-8px}
+.ladder{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:4px;font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.ladder span{padding:.45em 1em;border-radius:999px;color:#14110f}
+.ladder .lk{background:linear-gradient(120deg,var(--coral),var(--coral-2))}.ladder .la{background:linear-gradient(120deg,var(--lav),var(--lav-2))}.ladder .ll{background:linear-gradient(120deg,var(--lime),var(--citrus))}
+.ladder i{font-style:normal;color:var(--lime);font-size:1.1rem}
+@media (max-width:560px){.ladder{display:none}}
 .pkg{position:relative;border-radius:24px;background:var(--panel);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
 .pkg .band{padding:22px 24px 20px;color:#14110f;background:linear-gradient(120deg,var(--a),var(--b))}
 .pkg .band small{font-weight:800;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
@@ -152,7 +163,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pkg.l{--a:var(--lime);--b:var(--citrus);border-color:color-mix(in srgb,var(--lime) 45%,var(--line));box-shadow:0 30px 80px -40px color-mix(in srgb,var(--lime) 60%,transparent)}
 .pkg .flag{position:absolute;top:18px;right:18px;background:var(--ink);color:var(--lime);font-weight:800;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:.45em .9em;border-radius:999px}
 .note{margin-top:18px;color:var(--muted);font-size:.9rem}
-@media (max-width:900px){.packages{grid-template-columns:1fr}}
+@media (max-width:900px){.packages{grid-template-columns:1fr}.pkg-plus{justify-self:center;margin:-2px 0}}
 
 /* menu */
 .menu-sec{position:relative;isolation:isolate;overflow:hidden}
@@ -456,6 +467,8 @@ main,footer{position:relative;z-index:1}
       <div class="head">
         <p class="eyebrow">Pakiety</p>
         <h2>Wybierzcie kartę <span class="lime">na swój wieczór</span></h2>
+        <p class="lead">Pakiety budujemy jeden na drugim: każdy kolejny zawiera <strong style="color:var(--text)">wszystko z poprzedniego</strong> i dokłada nowe pozycje.</p>
+        <div class="ladder" aria-hidden="true"><span class="lk">Klasyczny</span><i>+</i><span class="la">Autorski</span><i>+</i><span class="ll">Limonte</span></div>
       </div>
       <div class="packages">
         <article class="pkg k">
@@ -467,22 +480,28 @@ main,footer{position:relative;z-index:1}
             <a class="btn" href="#karty" data-pkg="Klasyczny" data-karta="klasyki">Wybieram Klasyczny</a>
           </div>
         </article>
+        <div class="pkg-plus" aria-hidden="true">+</div>
         <article class="pkg a">
           <div class="band"><small>Pakiet 2</small><h3>Autorski</h3><p>Nasza rekomendacja. Nasze własne kompozycje.</p></div>
           <div class="body">
             <div class="price"><small>od</small><b>3500</b><span>zł</span></div>
             <div class="count"><b>16</b><span>koktajli</span></div>
-            <ul><li class="base">Wszystko z pakietu Klasycznego</li><li>Karta autorska: 8 koktajli</li><li>Koktajl Pana / Pani Młodej</li></ul>
+            <div class="inc inc-k"><b>✓ Cały pakiet Klasyczny</b><span>8 koktajli klasycznych, mocktaile i lemoniady</span></div>
+            <p class="plus-lbl">Dodatkowo:</p>
+            <ul><li>Karta autorska: 8 koktajli</li><li>Koktajl Pana / Pani Młodej</li></ul>
             <a class="btn" href="#karty" data-pkg="Autorski" data-karta="autorskie">Wybieram Autorski</a>
           </div>
         </article>
+        <div class="pkg-plus" aria-hidden="true">+</div>
         <article class="pkg l">
           <span class="flag">Pełny bar</span>
           <div class="band"><small>Pakiet 3</small><h3>Limonte</h3><p>Jeden bar. Najwięcej możliwości.</p></div>
           <div class="body">
             <div class="price"><small>od</small><b>4500</b><span>zł</span></div>
             <div class="count"><b>25</b><span>pozycji</span></div>
-            <ul><li class="base">Wszystko z pakietu Autorskiego</li><li>Karta Jäger: 3 drinki</li><li>6 shotów</li></ul>
+            <div class="inc inc-a"><b>✓ Cały pakiet Autorski</b><span>16 koktajli, koktajl Pary Młodej, mocktaile i lemoniady</span></div>
+            <p class="plus-lbl">Dodatkowo:</p>
+            <ul><li>Karta Jäger: 3 drinki</li><li>6 shotów</li></ul>
             <a class="btn" href="#karty" data-pkg="Limonte" data-karta="jager">Wybieram Limonte</a>
           </div>
         </article>
