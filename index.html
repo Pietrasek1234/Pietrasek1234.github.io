@@ -436,15 +436,17 @@ main,footer{position:relative;z-index:1}
 .faq-head{position:sticky;top:96px;margin:0}
 .area{margin-top:10px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
 .area ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.area li{border:1px solid color-mix(in srgb,var(--lime) 35%,var(--line));color:var(--text);border-radius:999px;padding:.4em 1em;font-weight:700;font-size:.85rem}
-.faq-list{display:grid;gap:10px}
-.faq-list details{background:var(--panel);border:1px solid var(--line);border-radius:16px;transition:border-color .2s}
-.faq-list details[open]{border-color:color-mix(in srgb,var(--lime) 45%,var(--line))}
-.faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-family:var(--f-display);font-weight:700;font-size:1.08rem;line-height:1.25}
+.area li{background:#0b0e0c;border:1px solid color-mix(in srgb,var(--lime) 35%,#1f2622);color:var(--text);border-radius:999px;padding:.4em 1em;font-weight:700;font-size:.85rem}
+#faq{background:#000;position:relative;z-index:1;border-block:1px solid #151a17}
+.faq-list{display:grid;gap:0;border-top:1px solid #1f2622}
+.faq-list details{background:transparent;border-bottom:1px solid #1f2622;transition:background .25s}
+.faq-list details[open]{background:linear-gradient(90deg,color-mix(in srgb,var(--lime) 7%,transparent),transparent 70%)}
+.faq-list details[open] summary{color:var(--lime)}
+.faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 16px;transition:color .2s;font-family:var(--f-display);font-weight:700;font-size:1.08rem;line-height:1.25}
 .faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--lime);font-size:1.1rem;transition:transform .25s}
+.faq-list summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1px solid #2a332e;background:#0b0e0c;color:var(--lime);font-size:1.1rem;transition:transform .25s}
 .faq-list details[open] summary::after{transform:rotate(45deg);border-color:var(--lime)}
-.faq-list .ans{padding:0 20px 18px;color:var(--muted);font-size:.95rem}
+.faq-list .ans{padding:0 16px 20px;color:var(--muted);font-size:.95rem}
 .faq-list .ans ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
 .faq-list .ans b{color:var(--text)}
 @media (max-width:860px){.faq{grid-template-columns:1fr}.faq-head{position:static}}
