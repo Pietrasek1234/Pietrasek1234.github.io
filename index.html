@@ -330,7 +330,7 @@ footer{border-top:1px solid var(--line);padding-block:40px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
 footer img{height:22px;width:auto}
 footer p{color:var(--muted);font-size:.85rem}
-footer nav{display:flex;gap:20px;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+footer nav{display:flex;flex-wrap:wrap;gap:12px 20px;font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
 footer nav a{text-decoration:none;color:var(--muted)}
 footer nav a:hover{color:var(--lime)}
 
@@ -430,6 +430,25 @@ main,footer{position:relative;z-index:1}
 #r-klasyki:checked~.wrap .panel-k .drink,#r-autorskie:checked~.wrap .panel-a .drink,#r-jager:checked~.wrap .panel-j .drink,#r-jager:checked~.wrap .panel-j .sub{animation:drinkIn .45s cubic-bezier(.2,.7,.2,1) both}
 .menu-sec .drinks>*:nth-child(1){animation-delay:.05s!important}.menu-sec .drinks>*:nth-child(2){animation-delay:.09s!important}.menu-sec .drinks>*:nth-child(3){animation-delay:.13s!important}.menu-sec .drinks>*:nth-child(4){animation-delay:.17s!important}.menu-sec .drinks>*:nth-child(5){animation-delay:.21s!important}.menu-sec .drinks>*:nth-child(6){animation-delay:.25s!important}.menu-sec .drinks>*:nth-child(7){animation-delay:.29s!important}.menu-sec .drinks>*:nth-child(8){animation-delay:.33s!important}.menu-sec .drinks>*:nth-child(9){animation-delay:.37s!important}.menu-sec .drinks>*:nth-child(10){animation-delay:.41s!important}
 @media (prefers-reduced-motion:reduce){.menu-sec .mi,.menu-sec .drink,.menu-sec .sub{animation:none!important}}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:start}
+.faq-head{position:sticky;top:96px;margin:0}
+.area{margin-top:10px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
+.area ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.area li{border:1px solid color-mix(in srgb,var(--lime) 35%,var(--line));color:var(--text);border-radius:999px;padding:.4em 1em;font-weight:700;font-size:.85rem}
+.faq-list{display:grid;gap:10px}
+.faq-list details{background:var(--panel);border:1px solid var(--line);border-radius:16px;transition:border-color .2s}
+.faq-list details[open]{border-color:color-mix(in srgb,var(--lime) 45%,var(--line))}
+.faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-family:var(--f-display);font-weight:700;font-size:1.08rem;line-height:1.25}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--lime);font-size:1.1rem;transition:transform .25s}
+.faq-list details[open] summary::after{transform:rotate(45deg);border-color:var(--lime)}
+.faq-list .ans{padding:0 20px 18px;color:var(--muted);font-size:.95rem}
+.faq-list .ans ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.faq-list .ans b{color:var(--text)}
+@media (max-width:860px){.faq{grid-template-columns:1fr}.faq-head{position:static}}
+@media (max-width:560px){.faq-list summary{padding:14px 16px;font-size:.98rem}.faq-list .ans{padding:0 16px 14px;font-size:.88rem}}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
@@ -717,6 +736,63 @@ main,footer{position:relative;z-index:1}
     </div>
   </section>
 
+  <section id="faq">
+    <div class="wrap faq">
+      <div class="head faq-head">
+        <p class="eyebrow">Najczęstsze pytania</p>
+        <h2>Zanim <span class="lime">zapytacie</span></h2>
+        <p class="lead">Nie ma tu Waszego pytania? Napiszcie albo zadzwońcie: <a class="lime" href="tel:+48661386978" style="text-decoration:none;font-weight:800">661 386 978</a>.</p>
+        <div class="area">
+          <p class="eyebrow">Gdzie działamy</p>
+          <ul><li>Podkarpackie</li><li>Małopolskie</li><li>Lubelskie</li><li>Mazowieckie</li></ul>
+        </div>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>Gdzie działacie?</summary>
+          <div class="ans"><p>Obsługujemy wesela i eventy w województwach podkarpackim, małopolskim, lubelskim i mazowieckim. Przyjeżdżamy z pełnym zapleczem: barem, szkłem, lodem i wszystkimi składnikami.</p></div>
+        </details>
+        <details>
+          <summary>Czy pierwsze spotkanie jest płatne?</summary>
+          <div class="ans"><p>Nie, pierwsze spotkanie jest bezpłatne. Poświęcamy je na poznanie Waszych potrzeb, żeby jak najlepiej dopasować kartę, oprawę baru i przebieg wieczoru.</p></div>
+        </details>
+        <details>
+          <summary>W jakich godzinach pracuje bar?</summary>
+          <div class="ans"><p>Długość usługi dopasowujemy do Waszego przyjęcia. W pakietach obsługa trwa do 01:00 i można ją przedłużyć. Wystarczy zaznaczyć to w zapytaniu.</p></div>
+        </details>
+        <details>
+          <summary>Czy możemy spersonalizować kartę i bar?</summary>
+          <div class="ans"><ul>
+            <li><b>Karta drinków</b> z Waszymi ulubionymi smakami albo autorskie koktajle inspirowane Waszą historią.</li>
+            <li><b>Koktajl Pary Młodej</b>, który stanie się wizytówką wesela.</li>
+            <li><b>Oprawa baru</b> dopasowana do stylu: elegancko, rustykalnie, glamour albo boho.</li>
+          </ul></div>
+        </details>
+        <details>
+          <summary>Ilu barmanów obsługuje wesele?</summary>
+          <div class="ans"><p>Przy weselu do 120 gości bar obsługuje jeden barman. Powyżej 120 gości pracuje dwóch barmanów.</p></div>
+        </details>
+        <details>
+          <summary>Czy macie napoje bezalkoholowe?</summary>
+          <div class="ans"><p>Tak. W każdym pakiecie są mocktaile i lemoniady dla dzieci, kierowców i gości, którzy nie piją alkoholu.</p></div>
+        </details>
+        <details>
+          <summary>Czy bar sprawdzi się w plenerze lub w stodole?</summary>
+          <div class="ans"><p>Tak. Bar jest mobilny i stawiamy go wszędzie: w sali weselnej, w ogrodzie, w stodole, w namiocie, a nawet na plaży.</p></div>
+        </details>
+        <details>
+          <summary>Czym różnicie się od innych barów?</summary>
+          <div class="ans"><ul>
+            <li><b>Indywidualne podejście:</b> nie mamy gotowych szablonów, ofertę układamy pod Wasze wesele.</li>
+            <li><b>Autorskie koktajle</b> obok sprawdzonych klasyków.</li>
+            <li><b>Show barmańskie:</b> barmani dbają też o widowiskową obsługę i atmosferę przy barze.</li>
+            <li><b>Składniki:</b> świeże owoce, puree i pulpy owocowe oraz alkohole premium.</li>
+          </ul></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section id="kontakt" style="padding-top:0">
     <div class="wrap contact">
       <aside>
@@ -769,8 +845,8 @@ main,footer{position:relative;z-index:1}
 <footer>
   <div class="wrap">
     <img src="img/logo.png" alt="Limonte" width="1200" height="278">
-    <nav aria-label="Stopka"><a href="#pakiety">Pakiety</a><a href="#bary">Bary</a><a href="#kontakt">Kontakt</a><a href="https://www.instagram.com/limonte_cocktail_bar/" target="_blank" rel="noopener">Instagram</a></nav>
-    <p>Limonte Cocktail Bar · kontakt@limonte.pl</p>
+    <nav aria-label="Stopka"><a href="#pakiety">Pakiety</a><a href="#bary">Bary</a><a href="#faq">FAQ</a><a href="#kontakt">Kontakt</a><a href="https://www.instagram.com/limonte_cocktail_bar/" target="_blank" rel="noopener">Instagram</a></nav>
+    <p>Limonte Cocktail Bar · kontakt@limonte.pl · 661 386 978<br>Podkarpackie · Małopolskie · Lubelskie · Mazowieckie</p>
   </div>
 </footer>
 
