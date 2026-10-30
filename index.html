@@ -129,8 +129,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:540px){.features{grid-template-columns:1fr}}
 
 /* packages */
-.packages{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch}
-.pkg-plus{align-self:center;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--ink);border:1px solid var(--line);color:var(--lime);font-family:var(--f-display);font-weight:700;font-size:1.2rem;line-height:1}
+.packages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
 .inc{border-radius:12px;padding:10px 12px;display:grid;gap:2px;border:1px dashed var(--c);background:color-mix(in srgb,var(--c) 12%,transparent)}
 .inc b{font-size:.92rem;color:var(--c)}
 .inc span{font-size:.82rem;color:var(--muted);line-height:1.35}
@@ -166,7 +165,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pkg.l{--a:var(--lime);--b:var(--citrus);border-color:color-mix(in srgb,var(--lime) 45%,var(--line));box-shadow:0 30px 80px -40px color-mix(in srgb,var(--lime) 60%,transparent)}
 .pkg .flag{position:absolute;top:18px;right:18px;background:var(--ink);color:var(--lime);font-weight:800;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:.45em .9em;border-radius:999px}
 .note{margin-top:18px;color:var(--muted);font-size:.9rem}
-@media (max-width:900px){.packages{grid-template-columns:1fr}.pkg-plus{justify-self:center;margin:-2px 0}}
+@media (max-width:900px){.packages{grid-template-columns:1fr}}
 
 /* menu */
 .menu-sec{position:relative;isolation:isolate;overflow:hidden}
@@ -405,6 +404,18 @@ footer nav a:hover{color:var(--lime)}
 #bubbles{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 main,footer{position:relative;z-index:1}
 @media (prefers-reduced-motion:reduce){#bubbles{display:none}}
+
+.incl{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:-8px 0 22px;font-size:.78rem}
+.incl-lbl{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.68rem;color:var(--muted);margin-right:2px}
+.ic{padding:.35em .85em;border-radius:999px;font-weight:800;border:1px dashed var(--line);color:color-mix(in srgb,var(--muted) 55%,transparent);transition:all .35s}
+.incl-note{flex-basis:100%;color:var(--muted);font-size:.78rem}
+#r-klasyki:checked~.wrap .ic,#r-autorskie:checked~.wrap .ic-a,#r-autorskie:checked~.wrap .ic-l,#r-jager:checked~.wrap .ic-l{border-style:solid;border-color:transparent;color:#14110f}
+#r-klasyki:checked~.wrap .ic-k,#r-autorskie:checked~.wrap .ic-k{}
+.menu-sec .ic-k{--g:linear-gradient(120deg,var(--coral),var(--coral-2))}.menu-sec .ic-a{--g:linear-gradient(120deg,var(--lav),var(--lav-2))}.menu-sec .ic-l{--g:linear-gradient(120deg,var(--lime),var(--citrus))}
+#r-klasyki:checked~.wrap .ic,#r-autorskie:checked~.wrap .ic-a,#r-autorskie:checked~.wrap .ic-l,#r-jager:checked~.wrap .ic-l{background:var(--g)}
+@media (min-width:861px){.menu-sec .incl{margin-left:calc((100% - clamp(24px,4vw,56px)) * 1.15 / 2.15 + clamp(24px,4vw,56px))}}
+@media (max-width:860px){.menu-sec .incl{margin:-14px 0 20px}}
+@media (max-width:560px){.incl-lbl{flex-basis:100%}.ic{font-size:.72rem;padding:.3em .7em}.incl-note{font-size:.72rem}}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
@@ -484,7 +495,6 @@ main,footer{position:relative;z-index:1}
             <a class="btn" href="#karty" data-pkg="Klasyczny" data-karta="klasyki">Wybieram Klasyczny</a>
           </div>
         </article>
-        <div class="pkg-plus" aria-hidden="true">+</div>
         <article class="pkg a">
           <div class="band"><small>Pakiet 2</small><h3>Autorski</h3><p>Nasza rekomendacja. Nasze własne kompozycje.</p></div>
           <div class="body">
@@ -496,7 +506,6 @@ main,footer{position:relative;z-index:1}
             <a class="btn" href="#karty" data-pkg="Autorski" data-karta="autorskie">Wybieram Autorski</a>
           </div>
         </article>
-        <div class="pkg-plus" aria-hidden="true">+</div>
         <article class="pkg l">
           <span class="flag">Pełny bar</span>
           <div class="band"><small>Pakiet 3</small><h3>Limonte</h3><p>Jeden bar. Najwięcej możliwości.</p></div>
@@ -527,6 +536,11 @@ main,footer{position:relative;z-index:1}
             <label class="tab" for="r-autorskie" data-k="autorskie">Autorskie · 8</label>
             <label class="tab" for="r-jager" data-k="jager">Jäger &amp; shoty · 9</label>
           </div>
+      <div class="incl">
+        <span class="incl-lbl">Ta karta jest w pakietach:</span>
+        <span class="ic ic-k">Klasyczny</span><span class="ic ic-a">Autorski</span><span class="ic ic-l">Limonte</span>
+        <span class="incl-note">Każdy kolejny pakiet zawiera karty poprzedniego</span>
+      </div>
       <div class="menu-wrap">
         <figure class="menu-photo" style="margin:0"><img class="mi mi-k" src="img/karta-klasyki.jpg" alt="Karta koktajli klasycznych Limonte" width="1100" height="1556" loading="lazy"><img class="mi mi-a" src="img/karta-autorskie.jpg" alt="Karta koktajli autorskich Limonte" width="1100" height="1556" loading="lazy"><img class="mi mi-j" src="img/karta-jager.jpg" alt="Karta Jäger i shoty Limonte" width="1100" height="1556" loading="lazy"></figure>
         <div>
@@ -562,7 +576,6 @@ main,footer{position:relative;z-index:1}
             <div class="drink"><b>Melon ball</b><span>wódka, likier melonowy, sok ananasowy</span></div>
             <div class="drink"><b>Mango tango</b><span>wódka, mango, sok z limonki</span></div>
           </div>
-          <p class="menu-note n-k">Karta klasyczna jest w każdym pakiecie.</p><p class="menu-note n-a">Karta autorska jest w pakietach Autorskim i Limonte.</p><p class="menu-note n-j">Karta Jäger i shoty są w pakiecie Limonte.</p>
         </div>
       </div>
     </div>
