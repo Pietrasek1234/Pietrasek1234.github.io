@@ -299,14 +299,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .mail code{font-family:var(--f-body);font-weight:800;font-size:1.15rem;color:var(--lime);user-select:all}
 .mini{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;cursor:pointer}
 .mini:hover{color:var(--lime);border-color:var(--lime)}
-form{background:#000;border:1px solid #1f2622;border-radius:24px;padding:clamp(20px,3vw,34px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 16px}
+form{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(20px,3vw,34px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 16px}
 .f{display:grid;gap:6px;min-width:0}
 .f.full{grid-column:1/-1}
 .f.w2{grid-column:span 2}
 .f.w2 textarea{min-height:100%;height:100%}
 .f.msg{grid-template-rows:auto 1fr}
 label,.lbl{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--text);background:#101512;border:1px solid #232b26;border-radius:12px;padding:.8em .95em;min-width:0}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--text);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:.8em .95em;min-width:0}
 textarea{min-height:120px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 4px color-mix(in srgb,var(--lime) 16%,transparent)}
 input:user-invalid,select:user-invalid{border-color:#ff7a6b}
@@ -436,14 +436,13 @@ main,footer{position:relative;z-index:1}
 .faq-head{position:sticky;top:96px;margin:0}
 .area{margin-top:10px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:10px}
 .area ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.area li{background:#0b0e0c;border:1px solid color-mix(in srgb,var(--lime) 35%,#1f2622);color:var(--text);border-radius:999px;padding:.4em 1em;font-weight:700;font-size:.85rem}
+.area li{border:1px solid color-mix(in srgb,var(--lime) 35%,var(--line));color:var(--text);border-radius:999px;padding:.4em 1em;font-weight:700;font-size:.85rem}
 .faq-list{display:grid;gap:10px}
-.faq-list details{background:#000;border:1px solid #1f2622;border-radius:16px;transition:border-color .2s}
-.faq-list details[open]{border-color:color-mix(in srgb,var(--lime) 45%,#1f2622)}
-.faq-list details[open] summary{color:var(--lime)}
-.faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;transition:color .2s;font-family:var(--f-display);font-weight:700;font-size:1.08rem;line-height:1.25}
+.faq-list details{background:var(--panel);border:1px solid var(--line);border-radius:16px;transition:border-color .2s}
+.faq-list details[open]{border-color:color-mix(in srgb,var(--lime) 45%,var(--line))}
+.faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;font-family:var(--f-display);font-weight:700;font-size:1.08rem;line-height:1.25}
 .faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1px solid #2a332e;background:#0b0e0c;color:var(--lime);font-size:1.1rem;transition:transform .25s}
+.faq-list summary::after{content:"+";flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--lime);font-size:1.1rem;transition:transform .25s}
 .faq-list details[open] summary::after{transform:rotate(45deg);border-color:var(--lime)}
 .faq-list .ans{padding:0 20px 18px;color:var(--muted);font-size:.95rem}
 .faq-list .ans ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
