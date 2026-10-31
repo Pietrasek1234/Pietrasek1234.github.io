@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://limonte.pl/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://limonte.pl/img/hero.webp</image:loc></image:image>
+    <image:image><image:loc>https://limonte.pl/img/hero2.webp</image:loc></image:image>
+    <image:image><image:loc>https://limonte.pl/img/bar-jasny.webp</image:loc></image:image>
+    <image:image><image:loc>https://limonte.pl/img/bar-czarny.webp</image:loc></image:image>
+    <image:image><image:loc>https://limonte.pl/img/bar-drewno.webp</image:loc></image:image>
+    <image:image><image:loc>https://limonte.pl/img/wieza.webp</image:loc></image:image>
+  </url>
+</urlset>
