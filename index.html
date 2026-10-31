@@ -557,7 +557,9 @@ main>section.neon::before,main>section.neon+section::before{display:none}
   .burger{display:grid;place-content:center;gap:5px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);cursor:pointer;flex:none}
   .burger span{display:block;width:18px;height:2px;border-radius:2px;background:var(--text)}
   .burger span:nth-child(2){width:12px;justify-self:end}
-  .top-cta .soc:not(.tel){display:none!important}
+  .top-cta .soc{display:inline-flex!important}
+  .top-cta>.btn{display:none}
+  .top-cta{gap:8px}
   .menu-t{display:block;position:fixed;opacity:0;pointer-events:none;width:1px;height:1px;top:0;left:0}
   .drawer-bg{display:block;position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s}
   .drawer{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(84vw,360px);background:linear-gradient(180deg,#1b1917,#100f0e);border-left:1px solid var(--line);box-shadow:-30px 0 80px -20px rgba(0,0,0,.8);transform:translateX(105%);transition:transform .38s cubic-bezier(.2,.7,.2,1);padding:calc(18px + env(safe-area-inset-top,0px)) max(22px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) 24px;overflow-y:auto}
