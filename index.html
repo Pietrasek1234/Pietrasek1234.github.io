@@ -89,18 +89,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:1060px){.nav{gap:16px;font-size:.72rem}}
 .nav .mob-only{display:none}
 .nav a.on{color:var(--accent)}
-@media (max-width:900px){
-  html{scroll-padding-top:112px}
-  .top .wrap{flex-wrap:wrap;row-gap:10px;align-content:flex-start;min-height:0;padding-top:10px}
-  .top-cta{margin-left:auto}
-  .nav{display:flex;order:3;flex-basis:100%;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px))) 0;padding:0 max(16px,env(safe-area-inset-left,0px)) 10px;gap:6px!important;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;font-size:.68rem;letter-spacing:.1em;width:calc(100% + 32px);mask-image:linear-gradient(90deg,#000 88%,transparent)}
-  .nav::-webkit-scrollbar{display:none}
-  .nav .mob-only{display:inline-flex}
-  .top .wrap{column-gap:10px}
-  .top-cta .soc[aria-label="Opinie na Wesele z klasą"]{display:none}
-  .nav a{flex:none;padding:.55em 1em;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--ink) 60%,transparent)}
-  .nav a.on{background:var(--accent);border-color:var(--accent);color:var(--ink)}
-}
+@media (max-width:900px){.nav{display:none}.top-cta{margin-left:auto}}
 @media (max-width:420px){.top .btn{padding:.75em .9em;font-size:.66rem;letter-spacing:.08em}.top .wrap{gap:12px}.logo img{height:22px}}
 
 /* hero */
@@ -555,9 +544,53 @@ main>section.neon::before,main>section.neon+section::before{display:none}
 .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* mobile slide-in menu */
+.burger,.menu-t,.drawer,.drawer-bg{display:none}
+@media (max-width:900px){
+  .burger{display:grid;place-content:center;gap:5px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);cursor:pointer;flex:none}
+  .burger span{display:block;width:18px;height:2px;border-radius:2px;background:var(--text)}
+  .burger span:nth-child(2){width:12px;justify-self:end}
+  .top-cta .soc:not(.tel){display:none!important}
+  .menu-t{display:block;position:fixed;opacity:0;pointer-events:none;width:1px;height:1px;top:0;left:0}
+  .drawer-bg{display:block;position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s}
+  .drawer{display:flex;flex-direction:column;position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(84vw,360px);background:linear-gradient(180deg,#1b1917,#100f0e);border-left:1px solid var(--line);box-shadow:-30px 0 80px -20px rgba(0,0,0,.8);transform:translateX(105%);transition:transform .38s cubic-bezier(.2,.7,.2,1);padding:calc(18px + env(safe-area-inset-top,0px)) max(22px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) 24px;overflow-y:auto}
+  .menu-t:checked~.drawer{transform:none}
+  .menu-t:checked~.drawer-bg{opacity:1;pointer-events:auto}
+  .dr-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+  .dr-head img{height:22px;width:auto}
+  .dr-x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);position:relative;cursor:pointer}
+  .dr-x::before,.dr-x::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:2px;border-radius:2px;background:var(--text);transform:translate(-50%,-50%) rotate(45deg)}
+  .dr-x::after{transform:translate(-50%,-50%) rotate(-45deg)}
+  .dr-nav{display:grid}
+  .dr-nav a{display:flex;align-items:baseline;gap:14px;padding:13px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--text);font-family:var(--f-display);font-weight:700;font-size:1.45rem;text-transform:uppercase;opacity:0;transform:translateX(24px);transition:opacity .35s,transform .35s,color .2s}
+  .dr-nav a i{font-style:normal;font-family:var(--f-body);font-size:.7rem;font-weight:800;letter-spacing:.1em;color:var(--accent)}
+  .dr-nav a:active,.dr-nav a.on{color:var(--accent)}
+  .menu-t:checked~.drawer .dr-nav a{opacity:1;transform:none}
+  .menu-t:checked~.drawer .dr-nav a:nth-child(1){transition-delay:.08s}.menu-t:checked~.drawer .dr-nav a:nth-child(2){transition-delay:.11s}.menu-t:checked~.drawer .dr-nav a:nth-child(3){transition-delay:.14s}.menu-t:checked~.drawer .dr-nav a:nth-child(4){transition-delay:.17s}.menu-t:checked~.drawer .dr-nav a:nth-child(5){transition-delay:.2s}.menu-t:checked~.drawer .dr-nav a:nth-child(6){transition-delay:.23s}.menu-t:checked~.drawer .dr-nav a:nth-child(7){transition-delay:.26s}.menu-t:checked~.drawer .dr-nav a:nth-child(8){transition-delay:.29s}
+  .dr-foot{margin-top:auto;padding-top:28px;display:grid;gap:12px;justify-items:start}
+  .dr-tel{display:inline-flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:800;font-size:1.15rem}
+  .dr-tel svg{width:20px;height:20px;color:var(--accent)}
+  .dr-mail{color:var(--muted);text-decoration:none;font-weight:700}
+  .dr-foot .btn{margin-top:6px;width:100%;justify-content:center}
+}
+@media (max-width:900px) and (prefers-reduced-motion:reduce){.drawer,.dr-nav a{transition:none}}
 </style>
 
 <canvas id="bubbles" aria-hidden="true"></canvas>
+<input type="checkbox" id="menu-t" class="menu-t" aria-hidden="true" tabindex="-1">
+<label for="menu-t" class="drawer-bg" aria-hidden="true"></label>
+<aside class="drawer" aria-label="Menu">
+  <div class="dr-head"><img src="img/logo.png" alt="Limonte" width="1200" height="278"><label for="menu-t" class="dr-x" aria-label="Zamknij menu"></label></div>
+  <nav class="dr-nav">
+    <a href="#pakiety"><i>01</i>Pakiety</a><a href="#karty"><i>02</i>Koktajle</a><a href="#bary"><i>03</i>Bary</a><a href="#dodatki"><i>04</i>Dodatki</a><a href="#galeria"><i>05</i>Realizacje</a><a href="#rekomendacje"><i>06</i>Opinie</a><a href="#kontakt"><i>07</i>Kontakt</a><a href="#faq"><i>08</i>FAQ</a>
+  </nav>
+  <div class="dr-foot">
+    <a class="dr-tel" href="tel:+48661386978"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>661 386 978</a>
+    <a class="dr-mail" href="#kontakt">kontakt@limonte.pl</a>
+    <a class="btn" href="#kontakt">Zapytaj o termin</a>
+  </div>
+</aside>
 </head>
 <body>
 <header class="top">
@@ -570,14 +603,13 @@ main>section.neon::before,main>section.neon+section::before{display:none}
       <a href="#dodatki">Dodatki</a>
       <a href="#galeria">Realizacje</a>
       <a href="#rekomendacje">Opinie</a>
-      <a class="mob-only" href="#kontakt">Kontakt</a>
-      <a class="mob-only" href="#faq">FAQ</a>
     </nav>
     <div class="top-cta">
       <a class="soc tel" href="tel:+48661386978" aria-label="Zadzwoń: 661 386 978"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>661 386 978</span></a>
       <a class="soc" href="https://www.weselezklasa.pl/ogloszenia-weselne/limonte-cocktail-bar,59802/#opinie" target="_blank" rel="noopener" aria-label="Opinie na Wesele z klasą"><img class="wzk-logo" src="img/wzk-logo.png" alt="" width="172" height="172"><span>Wesele z klasą</span></a>
       <a class="soc" href="https://www.instagram.com/limonte_cocktail_bar/" target="_blank" rel="noopener" aria-label="Instagram Limonte"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg><span>Instagram</span></a>
       <a class="btn" href="#kontakt">Zapytaj o termin</a>
+      <label class="burger" for="menu-t" aria-label="Otwórz menu"><span></span><span></span><span></span></label>
     </div>
   </div>
 </header>
@@ -1063,6 +1095,11 @@ links.forEach(function(a){var t=document.getElementById(a.getAttribute('href').s
 var cur=null;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var a=map[e.target.id];if(!a||a===cur)return;if(cur)cur.classList.remove('on');a.classList.add('on');cur=a;
 if(innerWidth<=900){var n=a.parentElement;n.scrollTo({left:a.offsetLeft-16,behavior:'smooth'});}}})},{rootMargin:'-45% 0px -50% 0px'});
 Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});})();
+
+/* Close slide-in menu after choosing a link */
+(function(){var t=document.getElementById('menu-t');if(!t)return;
+document.querySelectorAll('.drawer a').forEach(function(a){a.addEventListener('click',function(){t.checked=false;});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')t.checked=false;});})();
 </script>
 
 </body>
